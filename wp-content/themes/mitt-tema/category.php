@@ -5,7 +5,10 @@ get_header();
 <?php?>
 
             <div id="primary" class="col-xs-12 col-md-9">
-                <h2>Blogg</h2>
+            <h2>fixa mig, skriv ut rätt kategori</h2>
+            <?php
+            get_bloginfo();
+            ?>
                         <?php
                             while(have_posts()){
                                 the_post(); ?>
@@ -16,11 +19,11 @@ get_header();
                             <ul class="meta">
                                 <li >
                                     <i class="fa fa-calendar"></i> <?php
-                                  echo get_the_date('l j F , Y');?>
+                                    echo get_the_date();?>
                                 </li>
                                 <li>
                                     <i class="fa fa-user"></i><?php
-                                    the_author_posts_link();?>
+                                     the_author_posts_link();?>
                                 </li>
                                 <li>
                                     <i class="fa fa-tag"></i> <?php
@@ -31,7 +34,7 @@ get_header();
                                 <?php the_content();?>
                             </p>
                         </article>
-                            <?php }?>
+                        <?php }?>
                     <nav class="navigation pagination">
 								<h2 class="screen-reader-text">Inläggsnavigering</h2>
 								<a class="prev page-numbers" href="">Föregående</a>
@@ -44,9 +47,13 @@ get_header();
 							<div id="sidebar">
 								<ul>
 									<li>
-										<?php
-                                        get_search_form();
-                                        ?>
+										<form id="searchform" class="searchform">
+											<div>
+												<label class="screen-reader-text">Sök efter:</label>
+												<input type="text" />
+												<input type="submit" value="Sök" />
+											</div>
+										</form>
 									</li>
 								</ul>
 								<ul role="navigation">
@@ -84,10 +91,7 @@ get_header();
 								
 							</div>
 						</aside>
-					</div>
-				</div>
-			</section>
-		</main>
+
 <?php
 get_footer();
 ?>

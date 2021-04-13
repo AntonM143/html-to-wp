@@ -5,7 +5,7 @@ get_header();
 <?php?>
 
             <div id="primary" class="col-xs-12 col-md-9">
-                <h2>Blogg</h2>
+                <h1><?php the_author();?></h1>
                         <?php
                             while(have_posts()){
                                 the_post(); ?>
@@ -20,7 +20,7 @@ get_header();
                                 </li>
                                 <li>
                                     <i class="fa fa-user"></i><?php
-                                    the_author_posts_link();?>
+                                     the_author_posts_link();?>
                                 </li>
                                 <li>
                                     <i class="fa fa-tag"></i> <?php
@@ -31,7 +31,7 @@ get_header();
                                 <?php the_content();?>
                             </p>
                         </article>
-                            <?php }?>
+                        <?php }?>
                     <nav class="navigation pagination">
 								<h2 class="screen-reader-text">Inläggsnavigering</h2>
 								<a class="prev page-numbers" href="">Föregående</a>
@@ -84,10 +84,7 @@ get_header();
 								
 							</div>
 						</aside>
-					</div>
-				</div>
-			</section>
-		</main>
+
 <?php
 get_footer();
 ?>

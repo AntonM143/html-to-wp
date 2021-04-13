@@ -10,8 +10,11 @@ function wpb_custom_new_menu() {
  */
 function register_menu(){
     register_nav_menu('footermenu','placeras i footer menu');
+    register_nav_menu('headmenu','Huvudmenyn');
     register_nav_menu('sidemenu', 'placeras i side menu');
+    register_nav_menu('sideCategory', 'Sido Kategorin');
     register_nav_menu('toStart', 'till start knappen');
+    register_nav_menu('Kategori', 'Kategori på bloggsidan');
     
 }
 

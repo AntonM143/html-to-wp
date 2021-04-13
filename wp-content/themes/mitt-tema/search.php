@@ -5,7 +5,7 @@ get_header();
 <?php?>
 
             <div id="primary" class="col-xs-12 col-md-9">
-                <h2>Blogg</h2>
+            
                         <?php
                             while(have_posts()){
                                 the_post(); ?>
@@ -31,7 +31,7 @@ get_header();
                                 <?php the_content();?>
                             </p>
                         </article>
-                            <?php }?>
+                        <?php }?>
                     <nav class="navigation pagination">
 								<h2 class="screen-reader-text">Inläggsnavigering</h2>
 								<a class="prev page-numbers" href="">Föregående</a>
@@ -55,22 +55,19 @@ get_header();
 										
                                         <?php
                                             wp_nav_menu(array(
-                                                'theme_location' => 'sidemenu',
-                                                'container'       => false,
-                                            ));
-                                               
-                                            ?>
+                                                'theme_location' => 'sidemenu'
+                                            ))?>
 											
 											</li>
 										<h2>Arkiv</h2>
-									<li class="categories">
-									
+                                        <li class="categories">
+										<h2>Kategorier</h2>
                                         <?php
                                            $variable = wp_list_categories( array(
                                             'echo' => false,
                                             'show_count' => true,
                                             'depth' => 1,
-                                            'title_li' => '<h2>' . __( 'Kategorier', 'textdomain' ) . '</h2>'
+                                            'title_li' => '<h2>' . __( 'Categories', 'textdomain' ) . '</h2>'
                                         ) );
                                          
                                         $variable = preg_replace( '~\((\d+)\)(?=\s*+<)~', '$1', $variable );
@@ -79,15 +76,9 @@ get_header();
                                        
 									</li>
 										</ul>
-									
-									
-								
 							</div>
 						</aside>
-					</div>
-				</div>
-			</section>
-		</main>
+
 <?php
 get_footer();
 ?>

@@ -3,11 +3,10 @@
 get_header();
 ?>
 
-						<div class="col-xs-12">
-							<div class="hero">
-								<?php the_post_thumbnail();?>
-								<div class="text">
-                                <?php
+
+
+                        <div class="col-xs-12 col-sm-8 col-md-6">   
+                            <?php
                                     while(have_posts()){
                                         the_post();?>
                                     <h1>
@@ -16,13 +15,12 @@ get_header();
                                     <p><?php the_content();?>
                                     </p>
                                     <?php } ?>
-									<!-- <h1>Hej och välkommen!</h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales mauris. Aliquam felis est, efficitur vel fringilla quis, vehicula quis ex.</p> -->
-								</div>
-							</div>
 						</div>
+                        <div class="col-xs-12 col-sm-4 col-md-6">
+                            <?php the_post_thumbnail();?>
+						</div>
+
 
 <?php
 get_footer();
 ?>
-		
