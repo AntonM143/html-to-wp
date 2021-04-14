@@ -4,94 +4,49 @@ get_header();
 
 <?php?>
 
-            <div id="primary" class="col-xs-12 col-md-9">
-            <h2>fixa mig, skriv ut rätt kategori</h2>
+    <div id="primary" class="col-xs-12 col-md-9">
+        <h2>fixa mig, skriv ut rätt kategori</h2>
             <?php
-            get_bloginfo();
+                
+               the_title('<h2>', '</h2>');
             ?>
-                        <?php
-                            while(have_posts()){
-                                the_post(); ?>
-                                <article>
-                                <?php the_post_thumbnail();?>
-                                <?php the_title('<h2>', '</h2>');?>
-                            
-                            <ul class="meta">
-                                <li >
-                                    <i class="fa fa-calendar"></i> <?php
-                                    echo get_the_date();?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-user"></i><?php
-                                     the_author_posts_link();?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-tag"></i> <?php
-                                    the_category(', ');?>
-                                </li>
-                            </ul>
+            <?php
+                while(have_posts()){
+                    the_post(); 
+            ?>
+                <article>
+                    <?php the_post_thumbnail();?>
+                    <?php the_title('<h2>', '</h2>');?>
+                        <ul class="meta">
+                            <li >
+                                <i class="fa fa-calendar"></i> <?php
+                                echo get_the_date();?>
+                            </li>
+                            <li>
+                                <i class="fa fa-user"></i><?php
+                                    the_author_posts_link();?>
+                            </li>
+                            <li>
+                                <i class="fa fa-tag"></i> <?php
+                                the_category(', ');?>
+                            </li>
+                        </ul>
                             <p>
                                 <?php the_content();?>
                             </p>
-                        </article>
-                        <?php }?>
-                    <nav class="navigation pagination">
-								<h2 class="screen-reader-text">Inläggsnavigering</h2>
-								<a class="prev page-numbers" href="">Föregående</a>
-								<span class="page-numbers current">1</span>
-								<a class="page-numbers" href="">2</a>
-								<a class="next page-numbers" href="">Nästa</a>
-							</nav>
-						</div>
-						<aside id="secondary" class="col-xs-12 col-md-3">
-							<div id="sidebar">
-								<ul>
-									<li>
-										<form id="searchform" class="searchform">
-											<div>
-												<label class="screen-reader-text">Sök efter:</label>
-												<input type="text" />
-												<input type="submit" value="Sök" />
-											</div>
-										</form>
-									</li>
-								</ul>
-								<ul role="navigation">
-									<li class="pagenav">
-										<h2>Sidor</h2>
-										
-                                        <?php
-                                            wp_nav_menu(array(
-                                                'theme_location' => 'sidemenu',
-                                                'container'       => false,
-                                            ));
-                                               
-                                            ?>
-											
-											</li>
-										<h2>Arkiv</h2>
-									<li class="categories">
-									
-                                        <?php
-                                           $variable = wp_list_categories( array(
-                                            'echo' => false,
-                                            'show_count' => true,
-                                            'depth' => 1,
-                                            'title_li' => '<h2>' . __( 'Kategorier', 'textdomain' ) . '</h2>'
-                                        ) );
-                                         
-                                        $variable = preg_replace( '~\((\d+)\)(?=\s*+<)~', '$1', $variable );
-                                        echo $variable;
-                                            ?>
-                                       
-									</li>
-										</ul>
-									
-									
-								
-							</div>
-						</aside>
-
+                </article>
+            <?php }?>
+                <nav class="navigation pagination">
+                            <h2 class="screen-reader-text">Inläggsnavigering</h2>
+                            <a class="prev page-numbers" href="">Föregående</a>
+                            <span class="page-numbers current">1</span>
+                            <a class="page-numbers" href="">2</a>
+                            <a class="next page-numbers" href="">Nästa</a>
+                        </nav>
+    </div>
 <?php
-get_footer();
+    get_sidebar();
+?>
+<?php
+    get_footer();
 ?>

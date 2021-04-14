@@ -15,13 +15,14 @@ get_header();
                                     </p>
                                     <?php } ?>
 						</div>
+                        
 						<aside id="secondary" class="col-xs-12 col-md-3">
 							<ul class="side-menu">
 								<li>
                                 
 								<?php
                                             wp_nav_menu(array(
-                                                'theme_location' => 'sidemenu',
+                                                'theme_location' => 'sideCategory',
                                                 'container'       => false,
                                             ));
                                                

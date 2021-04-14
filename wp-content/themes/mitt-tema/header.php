@@ -19,7 +19,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
-                    
                     <?php
                    	$menuParameters = array(
 						   'theme_location' => 'toStart',
@@ -27,6 +26,7 @@
 						   'echo'            => false,
 						   'items_wrap'      => '%3$s',
 						   'depth'           => 0,
+						   
 					   );
 						   echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' );
 					?>

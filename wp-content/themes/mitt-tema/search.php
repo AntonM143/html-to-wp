@@ -40,44 +40,9 @@ get_header();
 								<a class="next page-numbers" href="">Nästa</a>
 							</nav>
 						</div>
-						<aside id="secondary" class="col-xs-12 col-md-3">
-							<div id="sidebar">
-								<ul>
-									<li>
-										<?php
-                                        get_search_form();
-                                        ?>
-									</li>
-								</ul>
-								<ul role="navigation">
-									<li class="pagenav">
-										<h2>Sidor</h2>
-										
-                                        <?php
-                                            wp_nav_menu(array(
-                                                'theme_location' => 'sidemenu'
-                                            ))?>
-											
-											</li>
-										<h2>Arkiv</h2>
-                                        <li class="categories">
-										<h2>Kategorier</h2>
-                                        <?php
-                                           $variable = wp_list_categories( array(
-                                            'echo' => false,
-                                            'show_count' => true,
-                                            'depth' => 1,
-                                            'title_li' => '<h2>' . __( 'Categories', 'textdomain' ) . '</h2>'
-                                        ) );
-                                         
-                                        $variable = preg_replace( '~\((\d+)\)(?=\s*+<)~', '$1', $variable );
-                                        echo $variable;
-                                            ?>
-                                       
-									</li>
-										</ul>
-							</div>
-						</aside>
+						<?php
+                        get_sidebar();
+                        ?>
 
 <?php
 get_footer();

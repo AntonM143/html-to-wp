@@ -46,7 +46,11 @@
 					</div>
 				</div>
 			</div>
-           
+           <div class="col">
+			   <?php
+			   dynamic_sidebar('test-id');?>
+			   
+		   </div>
 		</footer>
     <?php
     wp_footer();
