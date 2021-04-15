@@ -5,7 +5,7 @@ get_header();
 
 
             <div id="primary" class="col-xs-12 col-md-9">
-                <h2>Blogg</h2>
+                <h2><?php the_title();?></h2>
                         <?php
                             while(have_posts()){
                                 the_post(); ?>
@@ -30,7 +30,7 @@ get_header();
                                 </li>
                             </ul>
                             <p>
-                                <?php the_excerpt();?>
+                                <?php the_content();?>
                             </p>
                         </article>
                             <?php }?>
