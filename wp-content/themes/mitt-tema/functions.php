@@ -13,41 +13,41 @@ add_action( 'shutdown', function() {
 
 
 
-
+/* Lägger till stöd för olika delar */
 add_theme_support("post-thumbnails");
 add_theme_support("menus");
 add_theme_support("widgets");
 
-  register_sidebar([
-    'name' => 'test',
-    'Description' => 'demo widget',
-    'id' => 'test-id',
-    'before' => ' '
-  ]);
+/* Registrerar Widgets */
   register_sidebar([
     'name' => 'Sido meny',
     'Description' => 'widget för Sido meny',
     'id' => 'sido-meny',
     'after' => ' <ul>'
-  ]);
+    ]);
+    register_sidebar([
+      'name' => 'Kort om oss meny till undersida',
+      'Description' => 'widget för Kort om oss som finns på undersidorna',
+      'id' => 'om-oss-footer',
+      'before_widget' => '<div class="col-xs-12 col-sm-6 col-md-4">',
+      'after_widget' => '</div>',
+      'before_title' => '<h4>',
+      'after_title' => '</h4>',
+      
+    ]);
   register_sidebar([
-    'name' => 'meny till undersida',
-    'Description' => 'widget för meny som finns på undersidorna',
-    'id' => 'undersida-sidebar',
-    'before' => ' '
+    'name' => 'Kontaktuppgifter meny till undersida',
+    'Description' => 'widget för Kontaktuppgifter som finns på undersidorna',
+    'id' => 'kontakt-footer',
+    'before_widget' => '<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4>',
+    'after_title' => '</h4>',
     
   ]);
+/* Registrerar Widgets */
 
-
-  
-  register_sidebar([
-    'name' => 'meny till footern',
-    'Description' => 'widget för meny som finns i footern',
-    'id' => 'footer-social',
-    'before' => ' '
-		
-  ]);
-  
+/* Registrerar Menyer */
 function register_menu(){
     register_nav_menu('footermenu','placeras i footer menu');
     register_nav_menu('headmenu','Huvudmenyn');
@@ -59,12 +59,13 @@ function register_menu(){
    );
     
 }
-
 add_action('after_setup_theme', 'register_menu');
+/* Registrerar Menyer */
 
 
 
 
+/* Länkar till js och css filer */
 function min_css_js_funk (){
   
   wp_enqueue_script('temaJquery', get_template_directory_uri(). '/js/jquery.js', [], false, true);
@@ -76,4 +77,5 @@ function min_css_js_funk (){
 }
 
   add_action('wp_enqueue_scripts', 'min_css_js_funk');
+/* Länkar till js och css filer */
 ?>

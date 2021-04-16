@@ -3,6 +3,7 @@
         <ul>
             
                 <?php
+                /* skriver ut widgeten med id sido-meny */
                     dynamic_sidebar('sido-meny');
                 ?>
             

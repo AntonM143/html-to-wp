@@ -1,48 +1,38 @@
 <?php
-get_header();
+    /* Hämtar och skriver ut det jag har i header.php */
+    get_header();
 ?>
-
-
-
-            <div id="primary" class="col-xs-12 col-md-9">
-            <h2> Sökresultat: 
-            <?php
-            echo get_search_query();?>
-            </h2>
-                        <?php
-                            while(have_posts()){
-                                the_post(); ?>
-                                <article>
-                                <?php the_post_thumbnail();?>
-                                <h2 class="title">
-                                    <a href="<?php the_permalink();?>"><?php the_title();?></a>
-								</h2>
-                            
-                            <ul class="meta">
-                                <li >
-                                    <i class="fa fa-calendar"></i> <?php
-                                  echo get_the_date('l j F , Y');?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-user"></i><?php
-                                    the_author_posts_link();?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-tag"></i> <?php
-                                    the_category(', ');?>
-                                </li>
-                            </ul>
-                            <p>
-                                <?php the_content();?>
-                            </p>
-                        </article>
-                        <?php }?>
-                       
-						</div>
-						<?php
-                        get_sidebar();
-                        ?>
-
+    <div class="col-xs-12">
+        <div class="hero">
+            <?php 
+                /* Hämtar thumbnail bilden samt skriver ut  */
+                the_post_thumbnail();
+            ?>
+            <div class="text">
+                <?php
+                /* Wp loopen, kollar om de finns post och så länge de finns kör och ta minus 1 */
+                while(have_posts()){
+                    the_post();
+                ?>
+                <h1>
+                    <?php
+                        /* Hämtar titel samt skriver ut */ 
+                        the_title();
+                    ?>
+                </h1>
+                <p>
+                    <?php 
+                        /* Hämtar och skriver ut "the content" */
+                        the_content();
+                    ?>
+                </p>
+                <?php 
+                    } 
+                ?> 
+        </div>
+    </div>
 <?php
-get_footer();
+    /* Hämtar och skriver ut det jag har i footer.php */
+    get_footer();
 ?>
+		
